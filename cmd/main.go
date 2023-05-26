@@ -35,10 +35,9 @@ func main() {
 	client.RegisterToGalaxy(arith)
 
 	rpc.HandleHTTP()
-	port := ServiceCore.GetRPCPort()
 
-	println("Multiply is running on port", port)
-	err = http.ListenAndServe(fmt.Sprintf(":%d", port), nil)
+	println("Divide is running on port", client.ClientHost, client.ClientPort)
+	err = http.ListenAndServe(fmt.Sprintf(":%d", client.ClientPort), nil)
 	if err != nil {
 		log.Println(err.Error())
 	}
